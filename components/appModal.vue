@@ -5,14 +5,13 @@
       <form action="">
         <label for="nameCollection">Name:</label>
         <input type="text" id="nameCollection" v-model="name" />
-        <button type="submit" @click.prevent="postCollection">Save</button>
+        <button type="submit" @click.prevent="postNewCollection">Save</button>
       </form>
     </div>
   </section>
 </template>
 
 <script>
-import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -35,7 +34,7 @@ export default {
         this.toggleModal(false);
       }
     },
-    async postCollection() {
+    async postNewCollection() {
       this.postCollection({ id: this.id, name: this.name });
     },
   },
