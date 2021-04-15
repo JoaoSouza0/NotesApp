@@ -5,11 +5,9 @@
         v-for="collection in collections"
         :key="collection.id"
         :name="collection.name"
-        :notes="collection.notes.length"
       />
 
       <addCollection />
-
       <appModal v-show="isActiveModal" />
     </div>
   </section>
@@ -50,7 +48,7 @@ export default {
 .collections {
   border-radius: 10px;
   border: solid 1px rgba(207, 194, 194, 0.164);
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
