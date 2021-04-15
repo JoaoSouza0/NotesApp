@@ -7,7 +7,9 @@
       </div>
       <div class="infos">
         <p>{{ name }}</p>
-        <small>{{ notes }} note </small>
+        <!--        
+           <small>{{ notes }} note </small>
+ -->
       </div>
     </div>
   </section>
@@ -16,7 +18,7 @@
 <script>
 export default {
   name: "collection",
-  props: ["name", "notes"],
+  props: ["name"],
 };
 </script>
 
