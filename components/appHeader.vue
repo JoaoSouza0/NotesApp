@@ -22,15 +22,14 @@ export default {
 </script>
 
 <style scoped>
-
-header{
-    margin-top: 10px;
+header {
+  margin-top: 10px;
 }
 
 .header-content {
-    border: solid 1px rgba(207, 194, 194, 0.164);
-    border-radius: 10px;
-  max-width: 900px;
+  border: solid 1px rgba(207, 194, 194, 0.164);
+  border-radius: 10px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 20px;
   display: flex;

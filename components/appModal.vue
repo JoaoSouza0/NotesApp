@@ -13,7 +13,7 @@
 
 <script>
 import axios from "axios";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "appModal",
@@ -22,19 +22,21 @@ export default {
       name: "",
     };
   },
+  computed: {
+    ...mapGetters({ id: "collection/qtCollections" }),
+  },
   methods: {
-    ...mapActions({ toggleModal: "collection/toggleModal" }),
+    ...mapActions({
+      toggleModal: "collection/toggleModal",
+      postCollection: "collection/postCollection",
+    }),
     closeModal(e) {
       if (e.currentTarget == e.target) {
         this.toggleModal(false);
       }
     },
     async postCollection() {
-      const r = axios.post("http://localhost:8000/collection", {
-        id: 4,
-        name: this.name,
-      });
-      console.log(r)
+      this.postCollection({ id: this.id, name: this.name });
     },
   },
 };
