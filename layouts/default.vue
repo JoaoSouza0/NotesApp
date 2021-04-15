@@ -21,7 +21,7 @@ body,
 h1,
 h2,
 ul,
-li ,p{
+li ,p,hr{
   padding: 0;
   margin: 0;
 }
