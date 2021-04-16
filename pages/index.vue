@@ -2,20 +2,20 @@
   <section>
     <div class="collections">
       <appCollection
-        v-for="(collection) in collections"
+        v-for="collection in collections"
         :key="collection.id"
         :name="collection.name"
         :id="collection.id"
       />
 
       <addCollection />
-      <appModal v-show="isActiveModal"/>
+      <appModal v-show="isActiveModal" />
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import appCollection from "@/components/appCollection.vue";
 import addCollection from "@/components/appAddCollection.vue";
 import appModal from "@/components/appModal.vue";
@@ -28,16 +28,13 @@ export default {
     appModal,
   },
   computed: {
-    //...mapState({ collections: "collection/collections" }),
-    collections() {
-      return this.$store.state.collection.collections;
-    },
-    isActiveModal() {
-      return this.$store.state.collection.isActiveModal;
-    },
+    ...mapState("collection", {
+      isActiveModal: "isActiveModal",
+      collections: "collections",
+    }),
   },
   methods: {
-    ...mapActions({ getCollections: "collection/getCollections" }),
+    ...mapActions("collection", { getCollections: "getCollections" }),
   },
   created() {
     this.getCollections();

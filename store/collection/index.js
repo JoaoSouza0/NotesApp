@@ -7,11 +7,9 @@ export const state = () => ({
 })
 
 export const getters = {
-
-    qtCollections(state) {
+    newId(state) {
         return (state.collections.length + 1)
     },
-
 }
 
 export const mutations = {
@@ -34,7 +32,7 @@ export const mutations = {
         state.collections = newState
     },
     editCollection(state, collection) {
-        /* fazer um map no qual adiciona a nova collection no lugar da antiga */
+
         const newCollections = state.collections.map((item) => {
             return item.id !== collection.id ? item : collection
         })
@@ -73,7 +71,7 @@ export const actions = {
     async putCollection(context, collection) {
         try {
             await axios.put(`http://localhost:8000/collections/${collection.id}`, collection);
-            context.commit('editCollection', collection) 
+            context.commit('editCollection', collection)
 
         } catch (error) {
             console.log(error)

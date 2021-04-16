@@ -24,9 +24,9 @@ export default {
   },
   props: ["id"],
   methods: {
-    ...mapActions({
-      delCollection: "collection/deleteCollection",
-      toggleModal: "collection/toggleModal",
+    ...mapActions("collection", {
+      delCollection: "deleteCollection",
+      toggleModal: "toggleModal",
     }),
     deleteCollection() {
       this.delCollection(this.id);

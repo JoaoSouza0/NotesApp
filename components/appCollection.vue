@@ -1,9 +1,9 @@
 <template>
-  <section class="test">
+  <section>
     <div class="collection">
       <dropDownMenu :id="id" />
       <div class="icons">
-        <img src="../assets/icons/work.svg" alt="" />
+        <img src="@/assets/icons/work.svg" alt="" />
       </div>
       <div class="infos">
         <p>{{ name }}</p>
@@ -38,8 +38,19 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 1s forwards;
 }
 .infos {
   text-align: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform:all translate3d(0, 50px, );
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0, 0);
+  }
 }
 </style>

@@ -11,7 +11,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
+import { uuid } from "vue-uuid";
 export default {
   //
   name: "formAddCollection",
@@ -20,13 +20,11 @@ export default {
       name: "",
     };
   },
-  computed: {
-    ...mapGetters({ id: "collection/qtCollections" }),
-  },
   methods: {
     ...mapActions("collection", { postCollection: "postCollection" }),
     async postNewCollection() {
-      this.postCollection({ id: this.id, name: this.name });
+      this.postCollection({ id: uuid.v1(), name: this.name });
+      this.name = "";
     },
   },
 };

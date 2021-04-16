@@ -22,8 +22,8 @@ export default {
     ...mapState("collection", { idCollection: "id" }),
   },
   methods: {
-    ...mapActions({
-      toggleModal: "collection/toggleModal",
+    ...mapActions('collection',{
+      toggleModal: "toggleModal",
     }),
     closeModal(e) {
       if (e.currentTarget == e.target) {

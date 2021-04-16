@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5>Edit collection {{ id }}</h5>
+    <h5>Edit collection</h5>
     <form action="">
       <label for="nameCollection">Name:</label>
       <input type="text" id="nameCollection" v-model="name" />
@@ -18,11 +18,14 @@ export default {
       name: "",
     };
   },
-  props: ["id"],
   methods: {
-    ...mapActions("collection", { putCollection: "putCollection" }),
+    ...mapActions("collection", {
+      putCollection: "putCollection",
+      toggleModal: "toggleModal",
+    }),
     async editCollection() {
       this.putCollection({ id: this.id, name: this.name });
+      this.toggleModal(false);
     },
   },
 };
