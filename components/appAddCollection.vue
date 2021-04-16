@@ -1,5 +1,9 @@
 <template>
-  <button class="addColection" @click.prevent="toggleModal(true)">plusIcon</button>
+  <button
+    class="addColection"
+    @click.prevent="toggleModal({ active: true, id: 0 })">
+    plusIcon
+  </button>
 </template>
 
 <script>

@@ -1,41 +1,34 @@
 <template>
   <section class="modal" @click.prevent="closeModal">
     <div class="modal-container">
-      <h5>Add new collection</h5>
-      <form action="">
-        <label for="nameCollection">Name:</label>
-        <input type="text" id="nameCollection" v-model="name" />
-        <button type="submit" @click.prevent="postNewCollection">Save</button>
-      </form>
+      <formAddCollection v-if="idCollection === 0" />
+      <formEditCollection v-else-if="idCollection !== 0" :id="idCollection" />
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapState } from "vuex";
+import formAddCollection from "./formAddCollection";
+import formEditCollection from "./formEditCollection";
 
 export default {
   name: "appModal",
-  data() {
-    return {
-      name: "",
-    };
+  components: {
+    formAddCollection,
+    formEditCollection,
   },
   computed: {
-    ...mapGetters({ id: "collection/qtCollections" }),
+    ...mapState("collection", { idCollection: "id" }),
   },
   methods: {
     ...mapActions({
       toggleModal: "collection/toggleModal",
-      postCollection: "collection/postCollection",
     }),
     closeModal(e) {
       if (e.currentTarget == e.target) {
         this.toggleModal(false);
       }
-    },
-    async postNewCollection() {
-      this.postCollection({ id: this.id, name: this.name });
     },
   },
 };

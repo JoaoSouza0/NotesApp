@@ -5,11 +5,11 @@
         v-for="(collection) in collections"
         :key="collection.id"
         :name="collection.name"
-        :index="collection.id"
+        :id="collection.id"
       />
 
       <addCollection />
-      <appModal v-show="isActiveModal" />
+      <appModal v-show="isActiveModal"/>
     </div>
   </section>
 </template>

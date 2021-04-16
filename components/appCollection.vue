@@ -1,7 +1,7 @@
 <template>
   <section class="test">
     <div class="collection">
-      <dropDownMenu :index="index" />
+      <dropDownMenu :id="id" />
       <div class="icons">
         <img src="../assets/icons/work.svg" alt="" />
       </div>
@@ -17,7 +17,7 @@ import dropDownMenu from "./dropDownMenu.vue";
 
 export default {
   name: "collection",
-  props: ["name", "index"],
+  props: ["name", "id"],
   components: {
     dropDownMenu,
   },

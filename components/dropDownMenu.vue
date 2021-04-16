@@ -3,8 +3,10 @@
     <p>...</p>
     <transition name="fade" appear>
       <div class="click-menu" v-if="isOpen">
-        <button>Editar</button>
-        <button @click="deleteCollection">Excluir</button>
+        <button @click.prevent="toggleModal({ active: true, id: id })">
+          Editar
+        </button>
+        <button @click.prevent="deleteCollection">Excluir</button>
       </div>
     </transition>
   </div>
@@ -20,11 +22,14 @@ export default {
       isOpen: false,
     };
   },
-  props: ["index"],
+  props: ["id"],
   methods: {
-    ...mapActions({ delCollection: "collection/deleteCollection" }),
+    ...mapActions({
+      delCollection: "collection/deleteCollection",
+      toggleModal: "collection/toggleModal",
+    }),
     deleteCollection() {
-      this.delCollection(this.index);
+      this.delCollection(this.id);
     },
   },
 };
