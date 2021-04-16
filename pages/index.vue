@@ -2,9 +2,10 @@
   <section>
     <div class="collections">
       <appCollection
-        v-for="collection in collections"
+        v-for="(collection) in collections"
         :key="collection.id"
         :name="collection.name"
+        :index="collection.id"
       />
 
       <addCollection />

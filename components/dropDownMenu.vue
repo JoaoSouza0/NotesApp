@@ -1,22 +1,31 @@
 <template>
   <div class="more" @click="isOpen = !isOpen">
-    <p >...</p>
+    <p>...</p>
     <transition name="fade" appear>
       <div class="click-menu" v-if="isOpen">
         <button>Editar</button>
-        <button>Excluir</button>
+        <button @click="deleteCollection">Excluir</button>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "dropDownMenu",
   data() {
     return {
       isOpen: false,
     };
+  },
+  props: ["index"],
+  methods: {
+    ...mapActions({ delCollection: "collection/deleteCollection" }),
+    deleteCollection() {
+      this.delCollection(this.index);
+    },
   },
 };
 </script>
@@ -44,7 +53,6 @@ img {
 .more p {
   display: true;
   margin-top: -10px;
-  
 }
 .click-menu {
   font-size: 13px;

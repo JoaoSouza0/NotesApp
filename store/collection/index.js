@@ -22,6 +22,13 @@ export const mutations = {
     },
     attCollections(state, collection) {
         state.collections.push(collection)
+    },
+    deleteCollections(state, collection) {
+
+        const newState = state.collections.filter(item => {
+            return item.id != collection
+        })
+        state.collections = newState
     }
 
 }
@@ -31,8 +38,6 @@ export const actions = {
         try {
             const res = await axios.get("http://localhost:3000/collections");
             context.commit('addCollections', res.data)
-            return res.data
-
         } catch (err) {
             console.log(err);
         }
@@ -44,6 +49,15 @@ export const actions = {
             context.commit('attCollections', collection)
         } catch (error) {
             console.log(err)
+        }
+    },
+    async deleteCollection(context, collection) {
+        try {
+            await axios.delete(`http://localhost:3000/collections/${collection}`);
+            context.commit('deleteCollections', collection)
+
+        } catch (error) {
+            console.log(error)
         }
     },
 
