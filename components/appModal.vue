@@ -1,28 +1,26 @@
 <template>
   <section class="modal" @click.prevent="closeModal">
     <div class="modal-container">
-      <formAddCollection v-if="idCollection === 0" />
-      <formEditCollection v-else-if="idCollection !== 0" :id="idCollection" />
+      <formCollection />
     </div>
   </section>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
-import formAddCollection from "./formAddCollection";
-import formEditCollection from "./formEditCollection";
+import formCollection from "./formCollection.vue";
 
 export default {
   name: "appModal",
   components: {
-    formAddCollection,
-    formEditCollection,
+ 
+    formCollection,
   },
   computed: {
     ...mapState("collection", { idCollection: "id" }),
   },
   methods: {
-    ...mapActions('collection',{
+    ...mapActions("collection", {
       toggleModal: "toggleModal",
     }),
     closeModal(e) {
