@@ -25,11 +25,11 @@ export default {
   props: ["id"],
   methods: {
     ...mapActions("collection", {
-      delCollection: "deleteCollection",
+      rmvCollection: "deleteCollection",
       toggleModal: "toggleModal",
     }),
     deleteCollection() {
-      this.delCollection(this.id);
+      this.rmvCollection(this.id);
     },
   },
 };
