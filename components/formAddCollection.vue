@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import { uuid } from "vue-uuid";
 export default {
   //
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     ...mapActions("collection", { postCollection: "postCollection" }),
-    async postNewCollection() {
+     postNewCollection() {
       this.postCollection({ id: uuid.v1(), name: this.name });
       this.name = "";
     },
