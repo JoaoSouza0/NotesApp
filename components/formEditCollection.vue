@@ -18,6 +18,7 @@ export default {
       name: "",
     };
   },
+  props: ["id"],
   methods: {
     ...mapActions("collection", {
       putCollection: "putCollection",
