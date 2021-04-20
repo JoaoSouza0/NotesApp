@@ -7,7 +7,9 @@
 
       <nav>
         <ul class="menu">
-          <li><h4>João Victor</h4></li>
+          <li>
+            <h4>{{ userName }}</h4>
+          </li>
           <li>Perfil</li>
         </ul>
       </nav>
@@ -18,6 +20,11 @@
 <script>
 export default {
   name: "appHeader",
+  data() {
+    return {
+      userName: "João Victor",
+    };
+  },
 };
 </script>
 

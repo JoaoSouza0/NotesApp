@@ -49,6 +49,7 @@ export default {
       this.name = "";
     },
     editCollection() {
+
       this.putCollection({ id: this.idCollection, name: this.name });
       this.toggleModal(false);
     },
