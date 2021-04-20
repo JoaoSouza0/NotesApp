@@ -1,8 +1,6 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import appAddCollection from '@/components/appAddCollection.vue'
-import { toggleModal } from "@/store/collection/index.js"
 import Vuex from 'vuex'
-
 
 describe('Open Modal', () => {
 
@@ -14,24 +12,31 @@ describe('Open Modal', () => {
     beforeEach(() => {
         actions = {
             "toggleModal": jest.fn().mockImplementation(() => {
-            }),
+
+            })
+
         };
         store = new Vuex.Store({
-            actions
+            modules: {
+                // collections have to be configured as a namespaced module here
+                collections: {
+                    namespaced: true,
+                    actions
+                }
+            }
         });
     });
     it('open mondal on click', async () => {
 
-        const wrapper = shallowMount(appAddCollection, {
+        const wrapper = mount(appAddCollection, {
             localVue,
             store,
         })
 
-        //const button = wrapper.find('button')
-        await wrapper.trigger('click')
+        const button = wrapper.find('button.addCollection')
+        button.trigger('click')
 
-        expect(actions["toggleModal"])
+        expect(actions["toggleModal"]).toHaveBeenCalled()
     })
-
 })
 
