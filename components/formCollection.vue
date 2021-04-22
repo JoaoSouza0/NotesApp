@@ -7,6 +7,7 @@
       <label for="nameCollection">Name:</label>
       <input type="text" id="nameCollection" v-model="name" />
       <button
+        id="createCollection"
         type="submit"
         v-if="idCollection === 0"
         @click.prevent="postNewCollection"
@@ -14,6 +15,7 @@
         Save Collection
       </button>
       <button
+        id="EditCollection"
         type="submit"
         v-else-if="idCollection !== 0"
         @click.prevent="editCollection"
@@ -49,7 +51,6 @@ export default {
       this.name = "";
     },
     editCollection() {
-
       this.putCollection({ id: this.idCollection, name: this.name });
       this.toggleModal(false);
     },
@@ -58,15 +59,14 @@ export default {
 </script>
 
 <style scoped>
-
-button{
-    border: none;
-    border-radius: 10px ;
-    padding: 5px;
-    background-color: black;
-    color: #fff;
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: black;
+  color: #fff;
 }
-input{
-    border-radius: 10px;
+input {
+  border-radius: 10px;
 }
 </style>

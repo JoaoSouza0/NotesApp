@@ -3,10 +3,13 @@
     <p>...</p>
     <transition name="fade" appear>
       <div class="click-menu" v-if="isOpen">
-        <button @click.prevent="toggleModal({ active: true, id: id })">
+        <button
+          id="edit"
+          @click.prevent="toggleModal({ active: true, id: id })"
+        >
           Editar
         </button>
-        <button @click.prevent="deleteCollection">Excluir</button>
+        <button id="deleteCollection" @click.prevent="rmvCollection">Excluir</button>
       </div>
     </transition>
   </div>
@@ -25,11 +28,11 @@ export default {
   props: ["id"],
   methods: {
     ...mapActions("collection", {
-      rmvCollection: "deleteCollection",
+      deleteCollection: "deleteCollection",
       toggleModal: "toggleModal",
     }),
-    deleteCollection() {
-      this.rmvCollection(this.id);
+    rmvCollection() {
+      this.deleteCollection(this.id);
     },
   },
 };

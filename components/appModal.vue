@@ -7,17 +7,13 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import formCollection from "./formCollection.vue";
 
 export default {
   name: "appModal",
   components: {
- 
     formCollection,
-  },
-  computed: {
-    ...mapState("collection", { idCollection: "id" }),
   },
   methods: {
     ...mapActions("collection", {
