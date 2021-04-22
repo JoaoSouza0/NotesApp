@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -155,34 +155,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -208,6 +208,7 @@
       &lt;label for="nameCollection"&gt;Name:&lt;/label&gt;
       &lt;input type="text" id="nameCollection" v-model="name" /&gt;
       &lt;button
+        id="createCollection"
         type="submit"
         v-if="idCollection === 0"
         @click.prevent="postNewCollection"
@@ -215,6 +216,7 @@
         Save Collection
       &lt;/button&gt;
       &lt;button
+        id="EditCollection"
         type="submit"
         v-else-if="idCollection !== 0"
         @click.prevent="editCollection"
@@ -226,13 +228,13 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-<span class="cstat-no" title="statement not covered" >import { mapActions, mapState } from "vuex";</span>
-<span class="cstat-no" title="statement not covered" >import { uuid } from "vue-uuid";</span>
+import { mapActions, mapState } from "vuex";
+import { uuid } from "vue-uuid";
 export default {
   //
   name: "formCollection",
-<span class="fstat-no" title="function not covered" >  data() {</span>
-<span class="cstat-no" title="statement not covered" >    return {</span>
+  data() {
+    return {
       name: "",
     };
   },
@@ -245,30 +247,28 @@ export default {
       putCollection: "putCollection",
       toggleModal: "toggleModal",
     }),
-<span class="fstat-no" title="function not covered" >    postNewCollection() {</span>
-<span class="cstat-no" title="statement not covered" >      this.postCollection({ id: uuid.v1(), name: this.name });</span>
-<span class="cstat-no" title="statement not covered" >      this.name = "";</span>
+    postNewCollection() {
+      this.postCollection({ id: uuid.v1(), name: this.name });
+      this.name = "";
     },
-<span class="fstat-no" title="function not covered" >    editCollection() {</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >      this.putCollection({ id: this.idCollection, name: this.name });</span>
-<span class="cstat-no" title="statement not covered" >      this.toggleModal(false);</span>
+    editCollection() {
+      this.putCollection({ id: this.idCollection, name: this.name });
+      this.toggleModal(false);
     },
   },
 };
 &lt;/script&gt;
 &nbsp;
 &lt;style scoped&gt;
-&nbsp;
-button{
-    border: none;
-    border-radius: 10px ;
-    padding: 5px;
-    background-color: black;
-    color: #fff;
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: black;
+  color: #fff;
 }
-input{
-    border-radius: 10px;
+input {
+  border-radius: 10px;
 }
 &lt;/style&gt;</pre></td></tr></table></pre>
 
@@ -277,7 +277,7 @@ input{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 20 2021 09:59:58 GMT-0300 (Brasilia Standard Time)
+                at Thu Apr 22 2021 14:16:32 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
