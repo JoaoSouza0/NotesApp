@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "test": "jest",
     "dev": "nuxt",
+    "serve": "npx json-server --watch api/data.json --port 8000",
     "generate": "nuxt generate",
     "start": "nuxt start",
     "test:unit": "vue-cli-service test:unit"
