@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619111792061" clover="3.2.0">
-  <project timestamp="1619111792061" name="All files">
-    <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8" elements="32" coveredelements="32" complexity="0" loc="22" ncloc="22" packages="2" files="7" classes="7"/>
+<coverage generated="1619115110178" clover="3.2.0">
+  <project timestamp="1619115110178" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="1" methods="8" coveredmethods="8" elements="32" coveredelements="31" complexity="0" loc="22" ncloc="22" packages="2" files="7" classes="7"/>
     <package name="components">
-      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
       <file name="appAddCollection.vue" path="/Users/joao.souza/Documents/projects/NotesAPP/notesapp/components/appAddCollection.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="12" count="2" type="stmt"/>
@@ -17,10 +17,10 @@
         <line num="24" count="1" type="stmt"/>
       </file>
       <file name="appModal.vue" path="/Users/joao.souza/Documents/projects/NotesAPP/notesapp/components/appModal.vue">
-        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="24" count="1" type="stmt"/>
       </file>
       <file name="dropDownMenu.vue" path="/Users/joao.souza/Documents/projects/NotesAPP/notesapp/components/dropDownMenu.vue">
@@ -33,7 +33,7 @@
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="30" count="2" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
-        <line num="36" count="5" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
