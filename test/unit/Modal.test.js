@@ -51,7 +51,7 @@ describe('testing Modal functions', () => {
             }
         })
 
-        const button = wrapper.find('button#edit')
+        const button = wrapper.find('button#EditButton')
         button.trigger('click')
         expect(actions["toggleModal"]).toHaveBeenCalled()
 

@@ -4,12 +4,14 @@
     <transition name="fade" appear>
       <div class="click-menu" v-if="isOpen">
         <button
-          id="edit"
+          id="EditButton"
           @click.prevent="toggleModal({ active: true, id: id })"
         >
           Editar
         </button>
-        <button id="deleteCollection" @click.prevent="rmvCollection">Excluir</button>
+        <button id="deleteCollection" @click.prevent="rmvCollection">
+          Excluir
+        </button>
       </div>
     </transition>
   </div>
@@ -44,6 +46,19 @@ img {
   height: 100%;
 }
 
+#EditButton, #deleteCollection{
+  border:1px solid black;
+  border-radius: 5px;
+}
+#EditButton:hover, #deleteCollection:hover{
+  color: white;
+  background-color: black ;
+  border-radius: 5px;
+}
+#EditButton{
+  width: 54px;
+  margin-bottom:5px;
+}
 .icons {
   width: 50px;
 }
