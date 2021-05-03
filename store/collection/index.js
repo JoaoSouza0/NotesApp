@@ -6,12 +6,6 @@ export const state = () => ({
     collections: [],
 })
 
-export const getters = {
-    newId(state) {
-        return (state.collections.length + 1)
-    },
-}
-
 export const mutations = {
     activeModal(state, isActiveModal) {
 

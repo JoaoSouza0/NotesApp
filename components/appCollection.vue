@@ -32,6 +32,10 @@ export default {
 .wrapper {
   position: relative;
   margin: 20px 20px;
+  border: 20px;
+}
+.wrapper:hover {
+  transform: scale(1.08);
 }
 
 .collection {

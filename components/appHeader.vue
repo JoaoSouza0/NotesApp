@@ -2,15 +2,15 @@
   <header>
     <div class="header-content">
       <div>
-        <img src="../assets/icons/noteIcon.svg" alt="" />
+        <nuxt-link to="/">
+          <img src="../assets/icons/noteIcon.svg" alt="" />
+        </nuxt-link>
       </div>
-
       <nav>
         <ul class="menu">
           <li>
             <h4>{{ userName }}</h4>
           </li>
-          <li>Perfil</li>
         </ul>
       </nav>
     </div>
