@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import appAddCollection from '@/components/appAddCollection.vue'
-import dropDownMenu from '@/components/dropDownMenu.vue'
+import dropDownCollection from '@/components/dropDownCollection.vue'
 import appModal from '@/components/appModal.vue'
 import Vuex from 'vuex'
 
@@ -41,7 +41,7 @@ describe('testing Modal functions', () => {
 
     it('open mondal to edit collection ', () => {
 
-        const wrapper = mount(dropDownMenu, {
+        const wrapper = mount(dropDownCollection, {
             localVue,
             store,
             data() {

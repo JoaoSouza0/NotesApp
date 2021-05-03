@@ -1,14 +1,15 @@
 <template>
-  <div> 
-    <appNotes  v-for="note in notes" :key="note.id"
-      :id="notes.id"
-      :title="notes.title"
-      :collectionId="notes.collectionId"
-      :color="notes.color"
-      :dt_create="note.dt.create"
+  <div>
+    <appNotes
+      v-for="note in notes"
+      :key="note.id"
+      :id="note.id"
+      :title="note.title"
+      :collectionId="note.collectionId"
+      :color="note.color"
+      :dateModfied="note.dateModfied"
       :content="note.content"
     />
-    <p>{{ notes }}</p>
   </div>
 </template>
 
@@ -21,8 +22,8 @@ export default {
       id: this.$route.params.id,
     };
   },
-  components:{
-    appNotes
+  components: {
+    appNotes,
   },
   computed: {
     ...mapState("notes", {

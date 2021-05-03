@@ -9,7 +9,7 @@
         >
           Editar
         </button>
-        <button id="deleteCollection" @click.prevent="rmvCollection">
+        <button id="deleteButton" @click.prevent="rmvNote">
           Excluir
         </button>
       </div>
@@ -21,7 +21,7 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "dropDownMenu",
+  name: "dropDownNote",
   data() {
     return {
       isOpen: false,
@@ -29,18 +29,18 @@ export default {
   },
   props: ["id"],
   methods: {
-    ...mapActions("collection", {
-      deleteCollection: "deleteCollection",
+    ...mapActions("notes", {
+      deleteNote: "deleteNotes",
       toggleModal: "toggleModal",
     }),
-    rmvCollection() {
-      this.deleteCollection(this.id);
+    rmvNote() {
+      this.deleteNote(this.id);
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 img {
   width: 100%;
   height: 100%;
@@ -52,21 +52,20 @@ img {
   background: rgb(248, 248, 248);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  position:absolute;
-  z-index: 1;
-  right: -15px;
-}
+  position: absolute;
+  right: 15px;
+ }
 .more p {
   display: true;
   margin-top: -10px;
 }
 #EditButton,
-#deleteCollection {
+#deleteButton {
   border: 1px solid black;
   border-radius: 5px;
 }
 #EditButton:hover,
-#deleteCollection:hover {
+#deleteButton:hover {
   color: white;
   background-color: black;
   border-radius: 5px;

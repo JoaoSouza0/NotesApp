@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import dropDownMenu from "./dropDownMenu.vue";
+import dropDownMenu from "./dropDownCollection.vue";
 
 export default {
   name: "collection",
@@ -53,6 +53,7 @@ export default {
 }
 .infos {
   text-align: center;
+  color: black;
 }
 @keyframes fadeIn {
   from {

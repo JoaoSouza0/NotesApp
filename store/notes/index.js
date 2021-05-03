@@ -27,7 +27,7 @@ export const mutations = {
         const newNotes = state.notes.map((item) => {
             return item.id !== notes.id ? item : notes
         })
-        state.notes = newNotes
+        state.notes = newtes
     }
 
 }
@@ -35,7 +35,7 @@ export const mutations = {
 export const actions = {
     async getNotes(context, notesIdCollection) {
         try {
-            const res = await axios.get(`http://localhost:8000/notes?collectionsId=${notesIdCollection.id}`);
+            const res = await axios.get(`http://localhost:8000/notes?collectionId=${notesIdCollection.id}`);
             context.commit('showNotes', res.data)
         } catch (err) {
             console.log(err);
@@ -53,7 +53,7 @@ export const actions = {
     async deleteNotes(context, noteId) {
         try {
             await axios.delete(`http://localhost:8000/notes/${noteId}`);
-            context.commit('deletenotes', noteId)
+            context.commit('deleteNotes', noteId)
 
         } catch (error) {
             console.log(error)

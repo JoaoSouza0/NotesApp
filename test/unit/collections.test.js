@@ -1,7 +1,7 @@
 import { mount, createLocalVue, shallowMount, localVue } from "@vue/test-utils"
 import header from '@/components/appHeader.vue'
 import formCollection from "@/components/formCollection.vue"
-import dropDownMenu from "@/components/dropDownMenu.vue"
+import dropDownCollection from "@/components/dropDownCollection.vue"
 import index from "@/pages/index.vue"
 import Vuex from "vuex"
 
@@ -75,7 +75,7 @@ describe("Test the CRUD of collection", () => {
 
     it("deleting a collection", () => {
 
-        const wrapper = mount(dropDownMenu, {
+        const wrapper = mount(dropDownCollection, {
             localVue,
             store,
             data() {
