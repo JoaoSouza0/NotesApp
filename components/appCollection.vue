@@ -1,13 +1,17 @@
 <template>
   <section>
-    <div class="collection">
+    <div class="wrapper">
       <dropDownMenu :id="id" />
-      <div class="icons">
-        <img src="@/assets/icons/work.svg" alt="" />
-      </div>
-      <div class="infos">
-        <p>{{ name }}</p>
-      </div>
+      <nuxt-link :to="'collection/' + id">
+        <div class="collection">
+          <div class="icons">
+            <img src="@/assets/icons/work.svg" alt="" />
+          </div>
+          <div class="infos">
+            <p>{{ name }}</p>
+          </div>
+        </div>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -25,6 +29,11 @@ export default {
 </script>
 
 <style>
+.wrapper {
+  position: relative;
+  margin: 20px 20px;
+}
+
 .collection {
   background: rgb(248, 248, 248);
   border: solid 1px rgba(207, 194, 194, 0);
@@ -32,8 +41,6 @@ export default {
   min-width: 120px;
   height: 150px;
   border-radius: 10px 0 10px 10px;
-  margin: 20px 20px;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +53,7 @@ export default {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform:all translate3d(0, 50px, );
+    transform: all translate3d(0, 50px);
   }
   to {
     opacity: 1;

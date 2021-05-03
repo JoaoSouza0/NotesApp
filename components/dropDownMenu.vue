@@ -46,37 +46,39 @@ img {
   height: 100%;
 }
 
-#EditButton, #deleteCollection{
-  border:1px solid black;
-  border-radius: 5px;
-}
-#EditButton:hover, #deleteCollection:hover{
-  color: white;
-  background-color: black ;
-  border-radius: 5px;
-}
-#EditButton{
-  width: 54px;
-  margin-bottom:5px;
-}
-.icons {
-  width: 50px;
-}
-
 .more {
-  position: absolute;
-  top: -1px;
-  right: -30px;
   border-radius: 0 10px 10px 10px;
   padding: 10px;
   background: rgb(248, 248, 248);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  position:absolute;
+  z-index: 1;
+  right: -15px;
 }
 .more p {
   display: true;
   margin-top: -10px;
 }
+#EditButton,
+#deleteCollection {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#EditButton:hover,
+#deleteCollection:hover {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+}
+#EditButton {
+  width: 54px;
+  margin-bottom: 5px;
+}
+.icons {
+  width: 50px;
+}
+
 .click-menu {
   font-size: 13px;
 }

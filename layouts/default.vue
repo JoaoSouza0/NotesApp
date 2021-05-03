@@ -1,11 +1,16 @@
 <template>
   <div>
     <appHeader />
-    <Nuxt />
+    <div class="collections">
+      <Nuxt />
+    </div>
+    <appModal v-show="isActiveModal" />
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import appHeader from "@/components/appHeader.vue";
+import appModal from "@/components/appModal.vue";
 export default {
   head: {
     titleTemplate: "Collection App - Nuxt.js",
@@ -17,9 +22,14 @@ export default {
       { hid: "description", name: "description", content: "Meta description" },
     ],
   },
-
   components: {
     appHeader,
+    appModal,
+  },
+  computed: {
+    ...mapState("collection", {
+      isActiveModal: "isActiveModal",
+    }),
   },
 };
 </script>
@@ -27,7 +37,13 @@ export default {
 ul {
   list-style: none;
 }
-
+.collections {
+  border-radius: 10px;
+  border: solid 1px rgba(207, 194, 194, 0.164);
+  max-width: 820px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 body,
 h1,
 h2,
