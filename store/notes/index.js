@@ -36,10 +36,10 @@ export const actions = {
         }
     },
 
-    async postCollection(context, collection) {
+    async postNotes(context, notes) {
         try {
             await axios.post("http://localhost:8000/notes", notes);
-            context.commit('addnotes', notes)
+            context.commit('addNotes', notes)
         } catch (error) {
             console.log(error)
         }
@@ -56,7 +56,7 @@ export const actions = {
     async putNotes(context, notes) {
         try {
             await axios.put(`http://localhost:8000/notes/${notes.id}`, notes);
-            context.commit('editnotes', notes)
+            context.commit('editNotes', notes)
 
         } catch (error) {
             console.log(error)
