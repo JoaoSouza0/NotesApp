@@ -1,18 +1,12 @@
 import axios from "axios";
 
 export const state = () => ({
-    isActiveModal: false,
-    id: 0,
+
     collections: [],
 })
 
 export const mutations = {
-    activeModal(state, isActiveModal) {
 
-        state.isActiveModal = isActiveModal.active
-        state.id = isActiveModal.id === 0 ? 0 : isActiveModal.id
-
-    },
     createCollections(state, collections) {
         state.collections = collections
     },
@@ -72,9 +66,6 @@ export const actions = {
         }
     },
 
-    toggleModal(context, isActive) {
-        context.commit('activeModal', isActive)
-    }
 }
 
 

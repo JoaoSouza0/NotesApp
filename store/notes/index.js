@@ -1,16 +1,10 @@
 import axios from "axios";
 
 export const state = () => ({
-    isActiveModal: false,
-    id: 0,
     notes: [],
 })
 export const mutations = {
-    activeModal(state, isActiveModal) {
-
-        state.isActiveModal = isActiveModal.active
-        state.id = isActiveModal.id === 0 ? 0 : isActiveModal.id
-    },
+ 
     showNotes(state, notes) {
         state.notes = notes
     },
@@ -27,7 +21,7 @@ export const mutations = {
         const newNotes = state.notes.map((item) => {
             return item.id !== notes.id ? item : notes
         })
-        state.notes = newtes
+        state.notes = newNotes
     }
 
 }
@@ -61,7 +55,7 @@ export const actions = {
     },
     async putNotes(context, notes) {
         try {
-            await axios.put(`http://localhost:8000/notess/${notes.id}`, notes);
+            await axios.put(`http://localhost:8000/notes/${notes.id}`, notes);
             context.commit('editnotes', notes)
 
         } catch (error) {
@@ -69,9 +63,6 @@ export const actions = {
         }
     },
 
-    toggleModal(context, isActive) {
-        context.commit('activeModal', isActive)
-    }
 }
 
 

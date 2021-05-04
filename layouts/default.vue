@@ -27,7 +27,7 @@ export default {
     appModal,
   },
   computed: {
-    ...mapState("collection", {
+    ...mapState("modal", {
       isActiveModal: "isActiveModal",
     }),
   },

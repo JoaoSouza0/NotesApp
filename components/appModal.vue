@@ -16,7 +16,7 @@ export default {
     formCollection,
   },
   methods: {
-    ...mapActions("collection", {
+    ...mapActions("modal", {
       toggleModal: "toggleModal",
     }),
     closeModal(e) {

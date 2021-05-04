@@ -38,12 +38,14 @@ export default {
     };
   },
   computed: {
-    ...mapState("collection", { idCollection: "id" }),
+    ...mapState("modal", { idCollection: "id" }),
   },
   methods: {
     ...mapActions("collection", {
       postCollection: "postCollection",
       putCollection: "putCollection",
+    }),
+    ...mapActions("modal", {
       toggleModal: "toggleModal",
     }),
     postNewCollection() {

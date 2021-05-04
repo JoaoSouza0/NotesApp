@@ -13,7 +13,7 @@ import { mapActions } from "vuex";
 
 export default {
   name: "addCollection",
-  methods: { ...mapActions("collection", { toggleModal: "toggleModal" }) },
+  methods: { ...mapActions("modal", { toggleModal: "toggleModal" }) },
 };
 </script>
 

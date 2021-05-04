@@ -31,6 +31,8 @@ export default {
   methods: {
     ...mapActions("collection", {
       deleteCollection: "deleteCollection",
+    }),
+    ...mapActions("modal", {
       toggleModal: "toggleModal",
     }),
     rmvCollection() {
@@ -52,7 +54,7 @@ img {
   background: rgb(248, 248, 248);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  position:absolute;
+  position: absolute;
   z-index: 1;
   right: -15px;
 }
