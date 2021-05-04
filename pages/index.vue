@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="collections-grid">
+    <div class="collections-container">
         <appCollection
           v-for="collection in collections"
           :key="collection.id"
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.collections-grid {
+.collections-container {
   position: relative;
   display: flex;
   justify-content: flex-start;

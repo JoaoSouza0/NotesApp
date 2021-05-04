@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .note-container {
   padding: 20px;
-  position: absolute;
+  position: relative;
 }
 .note {
   padding: 30px;

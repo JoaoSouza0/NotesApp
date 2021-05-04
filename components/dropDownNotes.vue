@@ -5,13 +5,11 @@
       <div class="click-menu" v-if="isOpen">
         <button
           id="EditButton"
-          @click.prevent="toggleModal({ active: true, id: id })"
+          @click.prevent="toggleModal({ active: true, id: id, type: 1 })"
         >
           Editar
         </button>
-        <button id="deleteButton" @click.prevent="rmvNote">
-          Excluir
-        </button>
+        <button id="deleteButton" @click.prevent="rmvNote">Excluir</button>
       </div>
     </transition>
   </div>
@@ -29,9 +27,12 @@ export default {
   },
   props: ["id"],
   methods: {
-    ...mapActions("notes", {
+    ...mapActions("modal", {
       deleteNote: "deleteNotes",
       toggleModal: "toggleModal",
+    }),
+    ...mapActions("notes", {
+      deleteNote: "deleteNotes",
     }),
     rmvNote() {
       this.deleteNote(this.id);
@@ -50,11 +51,10 @@ img {
   border-radius: 0 10px 10px 10px;
   padding: 10px;
   background: rgb(248, 248, 248);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
   cursor: pointer;
   position: absolute;
-  right: 15px;
- }
+}
 .more p {
   display: true;
   margin-top: -10px;

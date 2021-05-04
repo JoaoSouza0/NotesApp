@@ -1,19 +1,25 @@
 <template>
   <section class="modal" @click.prevent="closeModal">
     <div class="modal-container">
-      <formCollection />
+      <formCollection v-if="type === 0" />
+      <formNotes v-if="type === 1" />
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import formCollection from "./formCollection.vue";
+import formNotes from "@/components/formNotes.vue";
 
 export default {
   name: "appModal",
   components: {
     formCollection,
+    formNotes,
+  },
+  computed: {
+    ...mapState("modal", { type: "type" }),
   },
   methods: {
     ...mapActions("modal", {

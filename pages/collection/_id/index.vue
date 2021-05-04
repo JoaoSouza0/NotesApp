@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="notes-container">
     <appNotes
       v-for="note in notes"
       :key="note.id"
@@ -10,12 +10,14 @@
       :dateModfied="note.dateModfied"
       :content="note.content"
     />
+    <addNotes />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 import appNotes from "@/components/appNotes.vue";
+import addNotes from "@/components/appAddNotes.vue";
 export default {
   data() {
     return {
@@ -24,6 +26,7 @@ export default {
   },
   components: {
     appNotes,
+    addNotes,
   },
   computed: {
     ...mapState("notes", {
@@ -42,4 +45,11 @@ export default {
 </script>
 
 <style>
+.notes-container {
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+}
 </style>

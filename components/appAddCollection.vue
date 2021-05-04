@@ -2,7 +2,7 @@
   <button
     class="addCollection"
     id="addCollection"
-    @click.prevent="toggleModal({ active: true, id: 0 })"
+    @click.prevent="toggleModal({ active: true, id: 0, type: 0 })"
   >
     <img src="@/assets/icons/add-collection.svg" alt="" srcset="" />
   </button>
@@ -34,5 +34,4 @@ export default {
 .addCollection img{
   width: 50px;
 }
-</style
 </style>

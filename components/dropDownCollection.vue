@@ -5,7 +5,7 @@
       <div class="click-menu" v-if="isOpen">
         <button
           id="EditButton"
-          @click.prevent="toggleModal({ active: true, id: id })"
+          @click.prevent="toggleModal({ active: true, id: id, type: 0 })"
         >
           Editar
         </button>
@@ -42,12 +42,7 @@ export default {
 };
 </script>
 
-<style>
-img {
-  width: 100%;
-  height: 100%;
-}
-
+<style scoped>
 .more {
   border-radius: 0 10px 10px 10px;
   padding: 10px;
@@ -77,9 +72,7 @@ img {
   width: 54px;
   margin-bottom: 5px;
 }
-.icons {
-  width: 50px;
-}
+
 
 .click-menu {
   font-size: 13px;
