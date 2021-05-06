@@ -32,12 +32,24 @@ describe("Test the CRUD of notes", () => {
             }),
             "putNotes": jest.fn().mockImplementation(() => {
             }),
+            "toggleModal": jest.fn().mockImplementation(() => {
+            }),
+            "getCollections": jest.fn().mockImplementation(() => {
+            }),
         };
 
         store = new Vuex.Store({
             modules: {
                 // collections have to be configured as a namespaced module here
                 notes: {
+                    namespaced: true,
+                    actions
+                },
+                modal: {
+                    namespaced: true,
+                    actions
+                },
+                collection: {
                     namespaced: true,
                     actions
                 },
@@ -73,29 +85,6 @@ describe("Test the CRUD of notes", () => {
         expect(actions["postNotes"]).toHaveBeenCalled()
     })
 
-    it("Getting the infos to fill the form when edit",  () => {
-
-        const fillNote = jest.fn().mockImplementation(()=>{})
-
-        const wrapper = mount(formNotes, {
-            localVue,
-            store,
-            router,
-            mocks: {
-                $route
-            },
-            computed: {
-                idNote: () => 1
-            },
-        })
-
-        wrapper.setMethods({
-            fillNote: fillNote 
-        })
-
-        expect(fillNote).toHaveBeenCalled()
-    })
-
     it("editing a new note", () => {
 
         const wrapper = mount(formNotes, {
@@ -117,9 +106,10 @@ describe("Test the CRUD of notes", () => {
         const button = wrapper.find("button#editNotes")
         button.trigger("click")
         expect(actions["putNotes"]).toHaveBeenCalled()
+        expect(actions["toggleModal"]).toHaveBeenCalled()
     })
 
-    it("deleting a collection", () => {
+    it("deleting a note", () => {
 
         const wrapper = mount(dropDownNotes, {
             localVue,
@@ -136,7 +126,7 @@ describe("Test the CRUD of notes", () => {
         expect(actions["deleteNotes"]).toHaveBeenCalled()
     })
 
-    it("getting collections when created", () => {
+    it("getting notes when created", () => {
 
         const wrapper = mount(index, {
             localVue,
@@ -146,11 +136,10 @@ describe("Test the CRUD of notes", () => {
                 $route
             }
         })
-
+        
         expect(actions["getNotes"]).toHaveBeenCalled()
     })
-
-    it("getting collections when created", () => {
+    it("getting notes when update", () => {
 
         const wrapper = mount(index, {
             localVue,
@@ -162,6 +151,20 @@ describe("Test the CRUD of notes", () => {
         })
         wrapper.vm.$forceUpdate()
         expect(actions["getNotes"]).toHaveBeenCalled()
+    })
+
+    it("getting collections when created", () => {
+
+        const wrapper = mount(formNotes, {
+            localVue,
+            store,
+            router,
+            mocks: {
+                $route
+            }
+        })
+    
+        expect(actions["getCollections"]).toHaveBeenCalled()
     })
 
 });

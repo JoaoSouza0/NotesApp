@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from "@vue/test-utils"
+import { mount, createLocalVue, RouterLinkStub } from "@vue/test-utils"
 import header from '@/components/appHeader.vue'
 import formCollection from "@/components/formCollection.vue"
 import dropDownCollection from "@/components/dropDownCollection.vue"
@@ -11,29 +11,37 @@ describe("Test the CRUD of collection", () => {
     localVue.use(Vuex)
     let actions, store
 
-        beforeEach(() => {
-            actions = {
-                "getCollections": jest.fn().mockImplementation(() => {
-                }),
-                "postCollection": jest.fn().mockImplementation(() => {
-                }),
-                "deleteCollection": jest.fn().mockImplementation(() => {
-                }),
-                "putCollection": jest.fn().mockImplementation(() => {
-                }),
-            };
+    beforeEach(() => {
+        actions = {
+            "getCollections": jest.fn().mockImplementation(() => {
+            }),
+            "postCollection": jest.fn().mockImplementation(() => {
+            }),
+            "deleteCollection": jest.fn().mockImplementation(() => {
+            }),
+            "putCollection": jest.fn().mockImplementation(() => {
+            }),
+            "toggleModal": jest.fn().mockImplementation(() => {
+            }),
+        };
 
-            store = new Vuex.Store({
-                modules: {
-                    // collections have to be configured as a namespaced module here
-                    collection: {
-                        namespaced: true,
-                        actions
-                    },
-                }
-            });
 
+        store = new Vuex.Store({
+            modules: {
+                // collections have to be configured as a namespaced module here
+                collection: {
+                    namespaced: true,
+                    actions
+                },
+                modal: {
+                    namespaced: true,
+                    actions
+                },
+
+            }
         });
+
+    });
 
     it("Creating a new collection", async () => {
 
@@ -70,6 +78,7 @@ describe("Test the CRUD of collection", () => {
         const button = wrapper.find("button#EditCollection")
         button.trigger("click")
         expect(actions["putCollection"]).toHaveBeenCalled()
+        expect(actions["toggleModal"]).toHaveBeenCalled()
     })
 
     it("deleting a collection", () => {
@@ -103,7 +112,11 @@ describe("Test the CRUD of collection", () => {
 
 describe('Test Header render', () => {
     it('header is redering', () => {
-        const wrapper = mount(header)
+        const wrapper = mount(header, {
+            stubs: {
+                NuxtLink: RouterLinkStub
+            }
+        })
         expect(wrapper.find('header').vm).toBeTruthy()
     })
 })
