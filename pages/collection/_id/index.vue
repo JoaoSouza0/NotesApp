@@ -10,7 +10,7 @@
       :dateModfied="note.dateModfied"
       :content="note.content"
     />
-    <addNotes />
+    <addNotes class="add-notes" />
   </div>
 </template>
 
@@ -41,15 +41,21 @@ export default {
   created() {
     this.getNotes({ id: this.id });
   },
+  updated() {
+    this.getNotes({ id: this.id });
+  },
 };
 </script>
 
 <style>
 .notes-container {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
 
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  
+}
+.add-notes{
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
 }
 </style>

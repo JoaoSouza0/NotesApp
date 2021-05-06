@@ -19,7 +19,8 @@ export const mutations = {
     },
     editNotes(state, notes) {
         const newNotes = state.notes.map((item) => {
-            return item.id !== notes.id ? item : notes
+            console.log(item)
+            return (item.id !== notes.id) ? item : notes
         })
         state.notes = newNotes
     }

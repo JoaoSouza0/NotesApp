@@ -18,7 +18,7 @@ describe('testing Modal functions', () => {
         store = new Vuex.Store({
             modules: {
                 // collections have to be configured as a namespaced module here
-                collection: {
+                modal: {
                     namespaced: true,
                     actions
                 }
