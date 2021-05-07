@@ -41,9 +41,7 @@ export default {
   created() {
     this.getNotes({ id: this.id });
   },
-  updated() {
-    this.getNotes({ id: this.id });
-  },
+
 };
 </script>
 
@@ -51,9 +49,8 @@ export default {
 .notes-container {
   display: grid;
   grid-template-columns: 1fr, 1fr, 1fr;
-
 }
-.add-notes{
+.add-notes {
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
