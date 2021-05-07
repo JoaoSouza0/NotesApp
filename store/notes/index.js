@@ -4,7 +4,7 @@ export const state = () => ({
     notes: [],
 })
 export const mutations = {
- 
+
     showNotes(state, notes) {
         state.notes = notes
     },
@@ -19,10 +19,15 @@ export const mutations = {
     },
     editNotes(state, notes) {
         const newNotes = state.notes.map((item) => {
-            console.log(item)
             return (item.id !== notes.id) ? item : notes
         })
-        state.notes = newNotes
+
+        const notesAtt = newNotes.filter((item)=>{
+            return item.collectionId != notes.collectionId
+        })
+
+
+        state.notes = notesAtt
     }
 
 }
