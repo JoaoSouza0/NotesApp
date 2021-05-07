@@ -2,10 +2,10 @@ import { mount, createLocalVue } from "@vue/test-utils"
 import formNotes from "@/components/formNotes.vue"
 import dropDownNotes from "@/components/dropDownNotes.vue"
 import VueRouter from 'vue-router'
-
+import axios from 'axios'
 import index from "@/pages/collection/_id/index.vue"
 import Vuex from "vuex"
-
+jest.mock(`axios`)
 describe("Test the CRUD of notes", () => {
 
     const localVue = createLocalVue()
@@ -21,6 +21,7 @@ describe("Test the CRUD of notes", () => {
             id: '1'
         }
     }
+    
 
     beforeEach(() => {
         actions = {
@@ -108,6 +109,41 @@ describe("Test the CRUD of notes", () => {
         expect(actions["putNotes"]).toHaveBeenCalled()
         expect(actions["toggleModal"]).toHaveBeenCalled()
     })
+    it("fill note when edit", () => {
+
+
+        const data = {
+            data: {
+                title: "testing title",
+                collectionId:1,
+                color:"#F0B3B2",
+                content:"Testing axios calls"
+            }
+        }
+
+        axios.get.mockImplementationOnce(() => Promise.resolve(data))
+
+        const wrapper = mount(formNotes, {
+            localVue,
+            store,
+            router,
+            mocks: {
+                $route
+            },
+            computed: {
+                idNote: () => 1
+            },
+
+        })
+
+        wrapper.vm.$nextTick(() => {
+
+            expect(wrapper.vm.title).toEqual("testing title")
+            expect(wrapper.vm.collectionId).toEqual(1)
+            expect(wrapper.vm.color).toEqual("#F0B3B2")
+            expect(wrapper.vm.content).toEqual("Testing axios calls")
+        })
+    })
 
     it("deleting a note", () => {
 
@@ -136,7 +172,7 @@ describe("Test the CRUD of notes", () => {
                 $route
             }
         })
-        
+
         expect(actions["getNotes"]).toHaveBeenCalled()
     })
     it("getting notes when update", () => {
@@ -163,7 +199,7 @@ describe("Test the CRUD of notes", () => {
                 $route
             }
         })
-    
+
         expect(actions["getCollections"]).toHaveBeenCalled()
     })
 
