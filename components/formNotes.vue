@@ -38,11 +38,21 @@
         />
       </div>
     </form>
-    <button v-if="idNote === 0" type="submit" @click.prevent="postNewNote" id="addNote">
+    <button
+      v-if="idNote === 0"
+      type="submit"
+      @click.prevent="postNewNote"
+      id="addNote"
+    >
       Create New Note
     </button>
 
-    <button v-else-if="idNote !== 0" type="submit" @click.prevent="editNotes" id="editNotes">
+    <button
+      v-else-if="idNote !== 0"
+      type="submit"
+      @click.prevent="editNotes"
+      id="editNotes"
+    >
       Edit Note
     </button>
   </div>
@@ -103,14 +113,20 @@ export default {
       this.toggleModal(false);
     },
     async fillNote() {
-      const res = await axios.get(`http://localhost:8000/notes/${this.idNote}`);
-      this.title = res.data.title;
-      this.collectionId = res.data.collectionId;
-      this.color = res.data.color;
-      this.content = res.data.content;
+      try {
+        const res = await axios.get(
+          `http://localhost:8000/notes/${this.idNote}`
+        );
+        this.title = res.data.title;
+        this.collectionId = res.data.collectionId;
+        this.color = res.data.color;
+        this.content = res.data.content;
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
-   created() {
+  created() {
     this.getCollection();
     if (this.idNote) {
       this.fillNote();

@@ -51,7 +51,8 @@ img {
   border-radius: 0 10px 10px 10px;
   padding: 10px;
   background: rgb(248, 248, 248);
-
+  left: 25px;
+  top:25px;
   cursor: pointer;
   position: absolute;
 }
