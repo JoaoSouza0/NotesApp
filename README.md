@@ -20,13 +20,10 @@ Tecnologias aprendidas durante o desenvolvimento
 - [x] Editar coleções
 - [x] Excluir coleções
 - [x] Ver coleções
-
-### Melhorias para a proxima versão
-
-- [ ] Criar notas
-- [ ] Editar notas
-- [ ] Excluir notas
-- [ ] Ver notas
+- [x] Criar notas
+- [x] Editar notas
+- [x] Excluir notas
+- [x] Ver notas
 
 ## 💻 Pré-requisitos
 
