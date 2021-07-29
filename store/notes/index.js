@@ -9,7 +9,10 @@ export const mutations = {
         state.notes = notes
     },
     addNotes(state, notes) {
-        state.notes.push(notes)
+        
+            if(notes.collectionId === parseInt(notes.collectionPage)){
+                state.notes.push(notes)
+            }
     },
     deleteNotes(state, notes) {
         const newState = state.notes.filter(item => {
@@ -18,14 +21,15 @@ export const mutations = {
         state.notes = newState
     },
     editNotes(state, notes) {
+
         const newNotes = state.notes.map((item) => {
             return (item.id !== notes.id) ? item : notes
         })
 
-        const notesAtt = newNotes.filter((item)=>{
-            return item.collectionId != notes.collectionId
-        })
+       const notesAtt = newNotes.filter((item) => {
 
+            return item.collectionId === parseInt(notes.collectionPage)
+        })    
 
         state.notes = notesAtt
     }
