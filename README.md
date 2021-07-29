@@ -1,6 +1,6 @@
 # Collection App
 
-> Projeto desenvolvido durante o mês de abril para aprendizado no framework Vue.js
+> Projeto desenvolvido para aprendizado no framework Vue.js, junto com Nuxt.JS
 
 ### Aprendizados
 
@@ -32,25 +32,25 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Ter algum browser instalado
 * Ter uma máquina `<Windows / Linux / Mac>`
 
-## ☕ Usando Collections App
+## ☕ Usando Notes App
 
-Para usar Collections App, siga estas etapas:
+Para usar Notes App, siga estas etapas:
 
 ```
 - Clonar o repositório
 - Digitar o comando `npm install` para instalar as dependencias
-- Digitar o comando `npm run serve` para iniciar o JSON server
-- Emn outro terminal figitar o comando `npm run dev` para iniciar o projeto
+- Digitar o comando `npm run serve` para iniciar o JSON server em um terminal
+- Em outro terminal digitar o comando `npm run dev` para iniciar o projeto
 
 ```
-## 📫 Contribuindo para Collections App
+## 📫 Contribuindo para Notes App
 <!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
-Para contribuir com Collections App, siga estas etapas:
+Para contribuir com Notes App, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
 3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin Collections App / <local>`
+4. Envie para o branch original: `git push origin Notes App / <local>`
 5. Crie a solicitação de pull.
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
