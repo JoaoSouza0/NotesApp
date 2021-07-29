@@ -86,6 +86,7 @@ export default {
     ...mapActions("notes", {
       postNotes: "postNotes",
       putNotes: "putNotes",
+      gettingNotes:"getNotes"
     }),
     ...mapActions("modal", {
       toggleModal: "toggleModal",
@@ -97,6 +98,7 @@ export default {
         collectionId: this.collectionId,
         color: this.color,
         content: this.content,
+        collectionPage: this.$route.params.id,
       });
       this.title = "";
       this.content = "";
@@ -109,6 +111,7 @@ export default {
         collectionId: this.collectionId,
         color: this.color,
         content: this.content,
+        collectionPage: this.$route.params.id,
       });
       this.toggleModal(false);
     },
