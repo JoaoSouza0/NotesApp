@@ -1,10 +1,12 @@
 import { mount, createLocalVue } from "@vue/test-utils"
-import formNotes from "@/components/formNotes.vue"
-import dropDownNotes from "@/components/dropDownNotes.vue"
+import Vuex from "vuex"
 import VueRouter from 'vue-router'
 import axios from 'axios'
+import formNotes from "@/components/formNotes.vue"
+import dropDownNotes from "@/components/dropDownNotes.vue"
+import appNotes from '@/components/appNotes.vue'
 import index from "@/pages/collection/_id/index.vue"
-import Vuex from "vuex"
+
 jest.mock(`axios`)
 describe("Test the CRUD of notes", () => {
 
@@ -21,7 +23,7 @@ describe("Test the CRUD of notes", () => {
             id: '1'
         }
     }
-    
+
 
     beforeEach(() => {
         actions = {
@@ -115,9 +117,9 @@ describe("Test the CRUD of notes", () => {
         const data = {
             data: {
                 title: "testing title",
-                collectionId:1,
-                color:"#F0B3B2",
-                content:"Testing axios calls"
+                collectionId: 1,
+                color: "#F0B3B2",
+                content: "Testing axios calls"
             }
         }
 
@@ -201,6 +203,25 @@ describe("Test the CRUD of notes", () => {
         })
 
         expect(actions["getCollections"]).toHaveBeenCalled()
+    })
+
+    it('changing notes style when click', () => {
+        
+        const wrapper = mount(appNotes, {
+            data() {
+                return {
+                    active: true
+                }
+            }
+        })
+        const activeNote = jest.fn()
+        
+        wrapper.setMethods({ activeNote: activeNote })
+
+        const note = wrapper.find('#note')
+        note.trigger('click')
+        expect(activeNote).toBeCalled()
+
     })
 
 });
