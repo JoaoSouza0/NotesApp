@@ -1,7 +1,7 @@
 <template>
   <div class="note-container"> 
     <dropDownNotes :id="id" />
-    <div :class="noteClass" @click="activeNote">
+    <div :class="noteClass" id='note' @click="activeNote">
       <h5 class="noteTitle">{{ title }}</h5>
       <b class="note-dateModfied">{{ dateModfied }} </b>
       <div class="note-content">
@@ -18,7 +18,6 @@ export default {
   name: "appNotes",
   data(){
     return{
-      
       active:false,
     }
   },
@@ -71,6 +70,7 @@ export default {
   overflow: hidden;
   transition: max-height 0.5s;
   margin: 5px;
+  cursor: pointer;
 }
 
 .note-active {
