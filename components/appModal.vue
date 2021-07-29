@@ -1,8 +1,8 @@
 <template>
   <section class="modal" @click.prevent="closeModal">
     <div class="modal-container">
-      <formCollection v-if="type === 0" />
-      <formNotes v-if="type === 1" />
+      <formCollection v-if="type === collection" />
+      <formNotes v-if="type === notes" />
     </div>
   </section>
 </template>
@@ -14,6 +14,12 @@ import formNotes from "@/components/formNotes.vue";
 
 export default {
   name: "appModal",
+  data(){
+      return{
+        collection: 0,
+        notes:1
+      }
+  },
   components: {
     formCollection,
     formNotes,
