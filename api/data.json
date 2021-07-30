@@ -17,7 +17,6 @@
     {
       "id": 1,
       "title": "Meeting Notes",
-      "dt_create": null,
       "collectionId": 1,
       "color": "#F0B3B2",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus porta mi ac luctus. Fusce eu magna dui. Nullam varius felis justo, vel bibendum nisi dapibus ut. Maecenas imperdiet consequat ullamcorper. Sed commodo imperdiet diam, in maximus tellus malesuada id. Curabitur magna er"
@@ -25,7 +24,6 @@
     {
       "id": 2,
       "title": "College Notes",
-      "dt_create": null,
       "collectionId": 2,
       "color": "#F0B3B2",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus porta mi ac luctus. Fusce eu magna dui. Nullam varius felis justo, vel bibendum nisi dapibus ut. Maecenas imperdiet consequat ullamcorper. Sed commodo imperdiet diam, in maximus tellus malesuada id. Curabitur magna er"
@@ -33,7 +31,6 @@
     {
       "id": 3,
       "title": "House Notes",
-      "dt_create": null,
       "collectionId": 3,
       "color": "#F0B3B2",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus porta mi ac luctus. Fusce eu magna dui. Nullam varius felis justo, vel bibendum nisi dapibus ut. Maecenas imperdiet consequat ullamcorper. Sed commodo imperdiet diam, in maximus tellus malesuada id. Curabitur magna er"
