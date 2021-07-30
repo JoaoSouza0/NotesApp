@@ -68,7 +68,7 @@ export const actions = {
             const noteAtt = {...notes}
             delete noteAtt.collectionPage
             
-             await axios.put(`http://localhost:8000/notes/${notes.id}`, noteAtt); 
+            await axios.put(`http://localhost:8000/notes/${notes.id}`, noteAtt); 
             context.commit('editNotes', notes)
 
         } catch (error) {
